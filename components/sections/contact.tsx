@@ -60,7 +60,7 @@ function TerminalInput({
             className={`flex-1 bg-transparent font-mono text-sm outline-none ${
               error ? "text-destructive" : "text-foreground"
             } placeholder:text-muted-foreground/50`}
-            placeholder={label === "Signal Address" ? "email@example.com" : ""}
+            placeholder={label === "Email Address" ? "email@example.com" : ""}
           />
         )}
         {isFocused && !value && (
@@ -125,10 +125,10 @@ export function Contact() {
   }
 
   const socials = [
-    { icon: Github, href: "https://github.com", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+    { icon: Github, href: "https://github.com/Satwik290", label: "GitHub" },
+    { icon: Linkedin, href: "https://linkedin.com/in/satwik290", label: "LinkedIn" },
     { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-    { icon: Mail, href: "mailto:hello@alexchen.dev", label: "Email" },
+    { icon: Mail, href: "mailto:mohanty.satwik290@gmail.com", label: "Email" },
   ]
 
   return (
@@ -151,11 +151,10 @@ export function Contact() {
             Contact
           </span>
           <h2 className="mb-6 text-balance text-3xl font-bold tracking-tight sm:text-4xl">
-            Get In Touch
+            Let's Build Something
           </h2>
           <p className="mx-auto max-w-xl text-muted-foreground">
-            Have a project in mind or want to collaborate? Send me a message and
-            I&apos;ll get back to you soon.
+            Have an interesting project or opportunity? Let's discuss how I can help you build scalable, high-performance systems.
           </p>
         </motion.div>
 
@@ -205,10 +204,10 @@ export function Contact() {
                         />
                       </motion.div>
                       <h3 className="mb-2 text-lg font-semibold text-foreground">
-                        Message Sent
+                        Message Received
                       </h3>
                       <p className="mb-6 text-sm text-muted-foreground">
-                        Thanks for reaching out. I&apos;ll respond soon.
+                        Thanks for reaching out! I'll get back to you within 24 hours.
                       </p>
                       <button
                         onClick={resetForm}
@@ -249,7 +248,7 @@ export function Contact() {
                         error={error && !formData.name}
                       />
                       <TerminalInput
-                        label="Signal Address"
+                        label="Email Address"
                         value={formData.email}
                         onChange={(v) => setFormData({ ...formData, email: v })}
                         type="email"
@@ -268,7 +267,7 @@ export function Contact() {
                         className="w-full bg-primary font-mono text-sm font-medium text-primary-foreground shadow-lg shadow-primary/20 hover:bg-primary/90"
                       >
                         <Send className="mr-2 h-4 w-4" />
-                        Transmit Signal
+                        Send Message
                       </Button>
                     </motion.form>
                   )}
@@ -287,7 +286,7 @@ export function Contact() {
             <div className="rounded-xl border border-border/50 bg-card/40 p-6 backdrop-blur-sm">
               <h3 className="mb-4 font-semibold text-foreground">Connect</h3>
               <p className="mb-6 text-sm text-muted-foreground leading-relaxed">
-                Prefer email or social media? Reach out through any of these channels.
+                Reach out through any of these channels. I'm always interested in new opportunities and collaborations.
               </p>
 
               <div className="space-y-3">
@@ -307,7 +306,9 @@ export function Contact() {
 
               <div className="mt-8 border-t border-border/50 pt-6">
                 <p className="text-xs text-muted-foreground">
-                  Based in San Francisco, CA
+                  Based in Cuttack, Odisha
+                  <br />
+                  +91-7978657181
                   <br />
                   Open to remote opportunities worldwide
                 </p>

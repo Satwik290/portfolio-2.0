@@ -8,32 +8,32 @@ const highlights = [
   {
     icon: Code2,
     title: "Frontend",
-    description: "React, Next.js, TypeScript, and modern CSS for responsive UIs",
+    description: "React, Next.js, TypeScript, Zustand, TanStack Query & modern CSS",
   },
   {
     icon: Server,
     title: "Backend",
-    description: "Node.js, Python, Go for scalable APIs and microservices",
+    description: "Node.js, NestJS(Fastify), Microservices, Event-Driven Design",
   },
   {
     icon: Database,
-    title: "Databases",
-    description: "PostgreSQL, MongoDB, Redis for optimal data management",
+    title: "Data Layer",
+    description: "PostgreSQL, MongoDB, Prisma, Mongoose, Redis Pub/Sub",
   },
   {
     icon: Cloud,
-    title: "Cloud",
-    description: "AWS, GCP, Vercel for reliable deployments at scale",
+    title: "DevOps",
+    description: "AWS (EC2, S3), Docker, GitHub Actions, Linux/Bash",
   },
   {
     icon: Zap,
-    title: "Performance",
-    description: "Optimization for speed, SEO, and user experience",
+    title: "Architecture",
+    description: "Microservices (Turborepo), RAG (AI), WebSockets, RBAC",
   },
   {
     icon: Users,
-    title: "Leadership",
-    description: "Team mentoring and collaborative product delivery",
+    title: "Specialization",
+    description: "Scalable systems, atomic synchronization, high-availability design",
   },
 ]
 
@@ -58,12 +58,10 @@ export function About() {
             About
           </span>
           <h2 className="mb-6 text-balance text-3xl font-bold tracking-tight sm:text-4xl">
-            Crafting Digital Experiences
+            Full-Stack Engineering with Architectural Focus
           </h2>
           <p className="mx-auto max-w-2xl text-pretty text-muted-foreground leading-relaxed">
-            With 6+ years of experience, I build fullstack applications that are
-            technically robust and delightfully designed. I write clean,
-            maintainable code that scales.
+            I'm a software engineer passionate about building scalable web systems with clean code and architectural excellence. My focus is on engineering high-availability systems with atomic synchronization and deterministic data layers.
           </p>
         </motion.div>
 
@@ -76,24 +74,18 @@ export function About() {
         >
           <div className="space-y-4">
             <p className="text-muted-foreground leading-relaxed">
-              I&apos;m a fullstack developer based in San Francisco, passionate about
-              elegant solutions to complex problems. My journey began with curiosity
-              about how things work under the hood.
+              Currently pursuing B.Tech in Computer Science at DRIEMS University (CGPA 8.1), I've developed expertise in the modern JavaScript ecosystem across frontend and backend. I'm particularly focused on solving complex architectural challenges through microservices, event-driven design, and zero-loss data layer implementations.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Currently focused on building accessible, human-centered products at
-              scale. I also contribute to open source and explore AI and distributed systems.
+              My recent work on FinTrack V2 demonstrates my ability to architect scalable systems—implementing RAG pipelines for AI advisory, optimizing throughput by 40%, and ensuring deterministic accounting through BigInt/Integer-cents architecture.
             </p>
           </div>
           <div className="space-y-4">
             <p className="text-muted-foreground leading-relaxed">
-              I&apos;ve worked with startups, agencies, and enterprises, building
-              products users love. My approach combines technical excellence with
-              user empathy and business understanding.
+              I'm deeply committed to code quality and system optimization, with 350+ DSA problems solved and consistent contributions to competitive programming. I bring strong fundamentals in OS, DBMS, and Computer Networks to every architectural decision.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Always excited to collaborate on projects that push boundaries.
-              Let&apos;s build something amazing together.
+              Always excited to collaborate on projects that push technological boundaries and solve real-world problems with elegant, scalable solutions. Open to remote opportunities and innovative challenges in full-stack engineering.
             </p>
           </div>
         </motion.div>

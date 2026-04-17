@@ -18,75 +18,60 @@ interface Project {
 
 const projects: Project[] = [
   {
-    id: "ecommerce",
-    title: "E-Commerce Platform",
+    id: "fintrack-v2",
+    title: "FinTrack V2 - AI-Native Wealth Intelligence",
     description:
-      "Fullstack subscription management with real-time analytics, payment processing, and customer segmentation.",
-    tags: ["Next.js", "PostgreSQL", "Stripe", "Redis"],
-    github: "https://github.com",
-    live: "https://example.com",
+      "Engineered a Zero-Loss Financial Data Layer with BigInt/Integer-cents architecture. Designed Scalable RAG Pipeline for Gemini 2.5 Flash. Optimized throughput by 40% with Read-Model Aggregation pattern.",
+    tags: ["Next.js", "NestJS", "PostgreSQL", "Prisma", "Gemini AI"],
+    github: "https://github.com/Satwik290/FinTrack-V2",
     featured: true,
     stats: [
-      { label: "Revenue", value: "$2.4M/mo" },
-      { label: "Users", value: "45K+" },
+      { label: "Architecture", value: "Zero-Loss" },
+      { label: "Throughput", value: "+40%" },
     ],
   },
   {
-    id: "ai-dashboard",
-    title: "AI Analytics Dashboard",
+    id: "doclync-pro",
+    title: "DocLync Pro - Healthcare Platform",
     description:
-      "Real-time data visualization with ML-powered insights processing millions of data points daily.",
-    tags: ["React", "Python", "TensorFlow", "AWS"],
-    github: "https://github.com",
-    live: "https://example.com",
+      "Microservices healthcare platform with real-time WebSocket communication. Integrated Stripe payments, Cloudinary storage. Implemented JWT Auth with HttpOnly cookies and RBAC.",
+    tags: ["TypeScript", "React", "Node.js", "PostgreSQL", "Redis"],
+    github: "https://github.com/Satwik290/doclync-pro",
     featured: true,
     stats: [
-      { label: "Accuracy", value: "94%" },
-      { label: "Response", value: "<100ms" },
+      { label: "Architecture", value: "Turborepo" },
+      { label: "Scaling", value: "Horizontal" },
     ],
   },
   {
-    id: "collab-tool",
-    title: "Collaboration Suite",
+    id: "learnify",
+    title: "Learnify - Professional LMS Platform",
     description:
-      "Real-time document editing with video conferencing, screen sharing, and offline sync.",
-    tags: ["Next.js", "WebRTC", "Yjs", "Supabase"],
-    github: "https://github.com",
-    live: "https://example.com",
+      "High-performance learning management system with MongoDB Aggregation Framework stats engine. Implemented Atomic Synchronization logic for eventual consistency. Optimized cache with TanStack Query, reducing API overhead by 60%.",
+    tags: ["React", "Node.js", "MongoDB", "Framer Motion", "TanStack Query"],
+    github: "https://github.com/Satwik290/learnify",
     featured: true,
     stats: [
-      { label: "Concurrent", value: "500+" },
-      { label: "Latency", value: "<50ms" },
+      { label: "API Overhead", value: "-60%" },
+      { label: "Cache", value: "Optimized" },
     ],
   },
   {
-    id: "dev-tools",
-    title: "Developer Tools Suite",
+    id: "slooze",
+    title: "Slooze - Food Ordering Platform",
     description:
-      "Open-source CLI tools and VS Code extensions for improved developer workflow.",
-    tags: ["TypeScript", "Rust", "VS Code API"],
-    github: "https://github.com",
+      "Full-stack food ordering platform with JWT auth and three-role RBAC. Implemented multi-region data isolation. Built real-time shared cart feature using WebSockets and shareable links.",
+    tags: ["NestJS", "Next.js", "PostgreSQL", "Prisma", "Socket.io"],
+    github: "https://github.com/Satwik290",
     featured: false,
-    stats: [{ label: "Stars", value: "12K+" }],
   },
   {
-    id: "fintech",
-    title: "Finance Manager",
+    id: "research-tracker",
+    title: "Research Paper Reading Tracker",
     description:
-      "Mobile-first budgeting app with bank integrations and ML-powered categorization.",
-    tags: ["React Native", "Go", "Plaid"],
-    github: "https://github.com",
-    live: "https://example.com",
-    featured: false,
-    stats: [{ label: "Users", value: "25K+" }],
-  },
-  {
-    id: "cms",
-    title: "Headless CMS",
-    description:
-      "Content management with visual builder, versioning, and multi-tenant support.",
-    tags: ["Next.js", "GraphQL", "PostgreSQL"],
-    github: "https://github.com",
+      "Full-stack research paper tracking application. Fixed CORS issues, enum mismatches, and query parameter serialization between frontend and backend.",
+    tags: ["React", "Node.js", "MongoDB", "Express"],
+    github: "https://github.com/Satwik290",
     featured: false,
   },
 ]
@@ -231,11 +216,10 @@ export function Projects() {
             Portfolio
           </span>
           <h2 className="mb-6 text-balance text-3xl font-bold tracking-tight sm:text-4xl">
-            Selected Projects
+            Featured Projects
           </h2>
           <p className="mx-auto max-w-xl text-muted-foreground">
-            A collection of work showcasing my expertise in fullstack development,
-            from concept to deployment.
+            A collection of full-stack projects showcasing expertise in scalable architecture, microservices, and system design.
           </p>
         </motion.div>
 

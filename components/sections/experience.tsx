@@ -17,49 +17,52 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
-    id: "current",
-    role: "Senior Fullstack Engineer",
-    company: "TechCorp",
-    location: "San Francisco",
-    period: "2023 - Present",
-    description:
-      "Leading cloud-native applications and mentoring developers. Architecting scalable enterprise solutions.",
-    achievements: [
-      "Reduced API response time by 60% through optimization",
-      "Led microservices migration, improving deployments 10x",
-      "Built real-time features serving 100K+ concurrent users",
-    ],
-    technologies: ["Next.js", "Node.js", "PostgreSQL", "AWS"],
-  },
-  {
-    id: "prev1",
-    role: "Fullstack Developer",
-    company: "StartupXYZ",
+    id: "fintrack",
+    role: "Full-Stack Software Engineer",
+    company: "FinTrack V2 (B.Tech Project)",
     location: "Remote",
-    period: "2021 - 2023",
+    period: "2025 - Present",
     description:
-      "Core team member building B2B SaaS from ground up across frontend, backend, and DevOps.",
+      "Architected an AI-native wealth intelligence platform from ground up, focusing on scalable data layers and advanced RAG pipelines for financial advisory.",
     achievements: [
-      "Architected entire frontend with React and TypeScript",
-      "Built CI/CD reducing deployment from hours to minutes",
-      "Developed APIs handling 1M+ daily requests at 99.9% uptime",
+      "Engineered Zero-Loss Financial Data Layer using BigInt/Integer-cents architecture to eliminate IEEE 754 floating-point precision loss",
+      "Designed Scalable RAG Pipeline for Gemini 2.5 Flash with State-Aware Snapshot Builder for contextually accurate AI advisory",
+      "Optimized system throughput by 40% via Read-Model Aggregation pattern and PrismaPg native adapter optimization",
+      "Engineered Async Task Orchestration Layer for ingesting 15k+ market instruments with NestJS Cron workers",
     ],
-    technologies: ["React", "TypeScript", "Python", "Docker"],
+    technologies: ["Next.js", "NestJS", "PostgreSQL", "Prisma", "Gemini AI", "TypeScript"],
   },
   {
-    id: "prev2",
-    role: "Frontend Developer",
-    company: "Digital Agency",
-    location: "New York",
-    period: "2019 - 2021",
+    id: "doclync",
+    role: "Full-Stack Software Engineer",
+    company: "DocLync Pro (Healthcare Platform)",
+    location: "Remote",
+    period: "2026 (Upcoming)",
     description:
-      "Interactive web experiences for Fortune 500 clients, collaborating with designers.",
+      "Building a comprehensive healthcare platform with real-time communication and secure payment integration using microservices architecture.",
     achievements: [
-      "Delivered 20+ client projects from sites to web apps",
-      "Reduced page load times by 40% through optimization",
-      "Mentored 3 junior developers in frontend practices",
+      "Engineering microservices monorepo (Turborepo) with shared Prisma and Zod packages for 100% type-safety",
+      "Built real-time WebSocket chat engine using Socket.io and Redis Pub/Sub for horizontal scaling",
+      "Integrated Stripe API for secure payment flows and Cloudinary for medical document storage",
+      "Implemented secure JWT Auth with HttpOnly cookies and RBAC using Zustand state management",
     ],
-    technologies: ["React", "Vue.js", "SCSS", "GraphQL"],
+    technologies: ["TypeScript", "React", "Node.js", "PostgreSQL", "Redis", "Stripe"],
+  },
+  {
+    id: "learnify",
+    role: "Full-Stack Developer",
+    company: "Learnify - Professional LMS",
+    location: "Remote",
+    period: "2023 - 2024",
+    description:
+      "Developed a high-performance learning management system with advanced analytics and optimized data persistence patterns.",
+    achievements: [
+      "Architected High-Performance Stats Engine leveraging MongoDB Aggregation Framework with Atomic Synchronization logic",
+      "Designed Resilient Data Persistence Layer with custom Mongoose middleware for Soft-Deletion Protection",
+      "Optimized client-side state with TanStack Query for intelligent cache invalidation, reducing API overhead by 60%",
+      "Ensured eventual consistency across user enrollment events through atomic transaction handling",
+    ],
+    technologies: ["React", "Node.js", "MongoDB", "Framer Motion", "Zod", "JWT"],
   },
 ]
 
@@ -156,13 +159,13 @@ export function Experience() {
           className="mb-14 text-center"
         >
           <span className="mb-4 inline-block text-sm font-medium uppercase tracking-widest text-primary">
-            Career
+            Experience
           </span>
           <h2 className="mb-6 text-balance text-3xl font-bold tracking-tight sm:text-4xl">
-            Work Experience
+            Projects & Work
           </h2>
           <p className="mx-auto max-w-xl text-muted-foreground">
-            A journey through roles that shaped my expertise in fullstack development.
+            A journey through ambitious full-stack projects that shaped my expertise in scalable systems and architectural excellence.
           </p>
         </motion.div>
 

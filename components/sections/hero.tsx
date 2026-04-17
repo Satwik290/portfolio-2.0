@@ -38,7 +38,7 @@ export function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
             </span>
-            Open to new opportunities
+            Open to opportunities
           </span>
         </motion.div>
 
@@ -48,10 +48,10 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="mb-6 text-balance text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
         >
-          <span className="text-foreground">Building digital</span>
+          <span className="text-foreground">Engineering scalable</span>
           <br />
           <span className="bg-gradient-to-r from-primary via-primary to-primary/70 bg-clip-text text-transparent">
-            experiences that matter
+            high-availability systems
           </span>
         </motion.h1>
 
@@ -62,8 +62,7 @@ export function Hero() {
           className="mx-auto mb-10 max-w-2xl text-pretty text-lg text-muted-foreground leading-relaxed"
           data-cursor="text"
         >
-          Hi, I&apos;m Alex Chen. A fullstack developer crafting scalable web applications
-          and intuitive user interfaces with modern technologies.
+          Hi, I'm Satwik Mohanty. A Full-Stack Software Engineer with architectural focus on building scalable web systems. Experienced in the modern JavaScript ecosystem and skilled in managing complex data layers.
         </motion.p>
 
         <motion.div
@@ -97,7 +96,7 @@ export function Hero() {
           className="mt-14 flex items-center justify-center gap-5"
         >
           {[
-            { icon: Github, href: "https://github.com", label: "GitHub" },
+            { icon: Github, href: "https://github.com/Satwik290", label: "GitHub" },
             { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
             { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
           ].map((social) => (
