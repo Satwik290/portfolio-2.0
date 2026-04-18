@@ -64,7 +64,7 @@ export function CustomCursor() {
 
   // Magnetic state
   const magnetRef = useRef<MagneticTarget | null>(null)
-  const rafRef = useRef<number>()
+  const rafRef = useRef<number>(0)
 
   // --- Lerp util (GPU-friendly, runs in rAF) ---
   const lerp = (a: number, b: number, t: number) => a + (b - a) * t
@@ -218,17 +218,17 @@ export function CustomCursor() {
   const BLOB_GLOWS: Partial<Record<CursorVariant, string>> = {
     default: "radial-gradient(circle, rgba(0,217,255,0.9) 0%, rgba(0,217,255,0.3) 100%)",
     link:    "radial-gradient(circle, rgba(0,217,255,0.2) 0%, rgba(0,217,255,0.05) 100%)",
-    project: "radial-gradient(circle, rgba(240,178,51,0.15) 0%, rgba(0,217,255,0.1) 60%, transparent 100%)",
-    live:    "radial-gradient(circle, rgba(0,242,255,0.2) 0%, rgba(0,217,255,0.08) 70%, transparent 100%)",
-    github:  "radial-gradient(circle, rgba(196,181,253,0.2) 0%, rgba(196,181,253,0.06) 70%, transparent 100%)",
-    code:    "radial-gradient(circle, rgba(110,231,183,0.2) 0%, rgba(110,231,183,0.06) 70%, transparent 100%)",
-    tag:     "radial-gradient(circle, rgba(240,178,51,0.25) 0%, rgba(240,178,51,0.08) 70%, transparent 100%)",
+    project: "radial-gradient(circle, rgba(240,178,51,0.15) 0%, rgba(0,217,255,0.1) 60%, rgba(0,0,0,0) 100%)",
+    live:    "radial-gradient(circle, rgba(0,242,255,0.2) 0%, rgba(0,217,255,0.08) 70%, rgba(0,0,0,0) 100%)",
+    github:  "radial-gradient(circle, rgba(196,181,253,0.2) 0%, rgba(196,181,253,0.06) 70%, rgba(0,0,0,0) 100%)",
+    code:    "radial-gradient(circle, rgba(110,231,183,0.2) 0%, rgba(110,231,183,0.06) 70%, rgba(0,0,0,0) 100%)",
+    tag:     "radial-gradient(circle, rgba(240,178,51,0.25) 0%, rgba(240,178,51,0.08) 70%, rgba(0,0,0,0) 100%)",
   }
 
   const getBlob = (v: CursorVariant) => ({
     width:  BLOB_SIZES[v].w,
     height: BLOB_SIZES[v].h,
-    background: BLOB_GLOWS[v] ?? "transparent",
+    background: BLOB_GLOWS[v] ?? "rgba(0,0,0,0)",
     mixBlendMode: "screen" as const,
     ...(v === "text" ? { borderRadius: "2px" } : {}),
   })

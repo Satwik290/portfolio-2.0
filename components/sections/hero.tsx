@@ -482,7 +482,7 @@ export function Hero() {
             <motion.div variants={itemVariants} className="mt-10 flex items-center gap-4">
               {[
                 { icon: Github, href: "https://github.com/Satwik290", label: "GitHub" },
-                { icon: Linkedin, href: "https://linkedin.com/in/satwik290", label: "LinkedIn" },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/satwik-mohanty-94b262252/", label: "LinkedIn" },
                 { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
               ].map((social) => (
                 <motion.a

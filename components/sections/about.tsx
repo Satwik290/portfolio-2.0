@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, useInView, useScroll, useTransform } from "framer-motion"
+import { motion, useInView, useScroll, useTransform, Variants } from "framer-motion"
 import { useRef } from "react"
 import { Code2, Server, Database, Cloud, Zap, Users } from "lucide-react"
 
@@ -71,12 +71,12 @@ const accentColors = {
   },
 }
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.08 } },
 }
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 24, filter: "blur(6px)" },
   visible: {
     opacity: 1,

@@ -2,8 +2,7 @@
 
 import { motion, useInView, AnimatePresence } from "framer-motion"
 import { useRef, useState, useCallback, useEffect } from "react"
-import { Github, ArrowUpRight, Star, X, ZoomIn, Cpu, Layers, Shield, Zap } from "lucide-react"
-
+import { Github, ArrowUpRight, Star, X, ZoomIn, Cpu, Layers, Shield, Zap, CheckCircle, Database, Lock, Eye, TestTube, Package, GitBranch } from "lucide-react"
 interface Project {
   id: string
   title: string
@@ -33,7 +32,7 @@ const projects: Project[] = [
     shortTitle: "FinTrack V2",
     description:
       "Engineered a Zero-Loss Financial Data Layer with BigInt/Integer-cents architecture. Designed Scalable RAG Pipeline for Gemini 2.5 Flash. Optimized throughput by 40% with Read-Model Aggregation pattern.",
-    tags: ["Next.js", "NestJS", "PostgreSQL", "Prisma", "Gemini AI", "TypeScript"],
+    tags: ["Next.js", "NestJS", "PostgreSQL", "Prisma", "Gemini AI", "TypeScript", "Winston", "Jest", "Docker"],
     tagReasons: {
       "Next.js": "SSR + App Router for SEO-critical financial dashboards",
       "NestJS": "DI + Interceptors for modular, testable API layers",
@@ -70,6 +69,10 @@ const projects: Project[] = [
         { label: "Data Loss",   value: "0%",      icon: "shield" },
         { label: "AI Latency",  value: "~1.2s",   icon: "cpu" },
         { label: "Type Safety", value: "100%",    icon: "layers" },
+        { label: "Logging",     value: "Winston", icon: "eye" },
+        { label: "Testing",     value: "Jest",    icon: "test-tube" },
+        { label: "Deploy",      value: "Docker",  icon: "package" },
+        { label: "CI/CD",       value: "GH Actions", icon: "git-branch" },
       ],
     },
   },
@@ -79,7 +82,7 @@ const projects: Project[] = [
     shortTitle: "DocLync Pro",
     description:
       "Microservices healthcare platform with real-time WebSocket communication. Integrated Stripe payments, Cloudinary storage. Implemented JWT Auth with HttpOnly cookies and RBAC.",
-    tags: ["TypeScript", "React", "Node.js", "PostgreSQL", "Redis", "Stripe"],
+    tags: ["TypeScript", "React", "Node.js", "PostgreSQL", "Redis", "Stripe", "Winston", "Jest", "Docker"],
     tagReasons: {
       "TypeScript": "Strict typing across microservices reduces integration bugs",
       "React": "Component-driven UI with fine-grained re-renders via memo",
@@ -116,6 +119,10 @@ const projects: Project[] = [
         { label: "Auth Guard",   value: "RBAC",    icon: "shield" },
         { label: "Scale",        value: "H-Scale",  icon: "layers" },
         { label: "Cache Hit",    value: "~92%",    icon: "cpu" },
+        { label: "Logging",      value: "Winston", icon: "eye" },
+        { label: "Coverage",     value: "95% Jest",icon: "test-tube" },
+        { label: "Containers",   value: "Docker",  icon: "package" },
+        { label: "Pipeline",     value: "Actions", icon: "git-branch" },
       ],
     },
   },
@@ -125,7 +132,7 @@ const projects: Project[] = [
     shortTitle: "Learnify",
     description:
       "High-performance LMS with MongoDB Aggregation stats engine. Atomic Synchronization for eventual consistency. Optimized cache with TanStack Query, reducing API overhead by 60%.",
-    tags: ["React", "Node.js", "MongoDB", "Framer Motion", "TanStack Query"],
+    tags: ["React", "Node.js", "MongoDB", "Framer Motion", "TanStack Query", "Winston", "Jest", "Docker"],
     tagReasons: {
       "React": "Declarative UI with Suspense for streaming course content",
       "Node.js": "Streams for video content delivery",
@@ -158,6 +165,10 @@ const projects: Project[] = [
         { label: "TTFB",      value: "< 200ms", icon: "cpu" },
         { label: "Sync",      value: "Atomic", icon: "shield" },
         { label: "Cache",     value: "Smart",  icon: "layers" },
+        { label: "Observability",value: "Winston", icon: "eye" },
+        { label: "Tests",         value: "Jest",    icon: "test-tube" },
+        { label: "Hosting",      value: "Docker",  icon: "package" },
+        { label: "DevOps",       value: "GH Actions", icon: "git-branch" },
       ],
     },
   },
@@ -167,7 +178,7 @@ const projects: Project[] = [
     shortTitle: "Slooze",
     description:
       "Full-stack food ordering with JWT auth and three-role RBAC. Multi-region data isolation. Real-time shared cart with WebSockets and shareable links.",
-    tags: ["NestJS", "Next.js", "PostgreSQL", "Prisma", "Socket.io"],
+    tags: ["NestJS", "Next.js", "PostgreSQL", "Prisma", "Socket.io", "Winston", "Jest", "Docker"],
     tagReasons: {
       "NestJS": "Guard-based RBAC via custom decorators",
       "Next.js": "SSR for fast initial restaurant page loads",
@@ -194,6 +205,51 @@ const projects: Project[] = [
         { label: "RT Sync",   value: "< 25ms",  icon: "zap" },
         { label: "Regions",   value: "Multi",   icon: "layers" },
         { label: "Auth",      value: "JWT+HC",  icon: "cpu" },
+        { label: "Tracing",      value: "Winston", icon: "eye" },
+        { label: "Unit Tests",   value: "Jest",    icon: "test-tube" },
+        { label: "Deployment",   value: "Docker",  icon: "package" },
+        { label: "Builds",       value: "Actions", icon: "git-branch" },
+      ],
+    },
+  },
+  {
+    id: "college-appointment-system",
+    title: "College Appointment System — Educational Resource Management",
+    shortTitle: "College Appointments",
+    description:
+      "A robust modular backend for managing student-professor interactions. Features automated slot management, JWT-based security with HTTP-only cookies, and role-based access control.",
+    tags: ["Node.js", "Express", "TypeScript", "MongoDB", "Zod", "Winston", "Jest", "Docker"],
+    tagReasons: {
+      "Node.js": "Runtime for high-concurrency appointment booking",
+      "Express": "Modular routing for auth, availability, and appointment domains",
+      "TypeScript": "Strict type safety across controllers and services",
+      "MongoDB": "Flexible document storage with Mongoose ODM for relational-like population",
+      "Zod": "Schema validation ensuring 100% data integrity before hitting services",
+    },
+    github: "https://github.com/Satwik290/College-Appointment-System",
+    featured: false,
+    accent: "blue",
+    codeLines: [
+      { indent: 0, text: "export const roleMiddleware =", color: "#6ee7b7" },
+      { indent: 1, text: "(...allowedRoles: UserRole[]) =>", color: "#F0B233" },
+      { indent: 1, text: "(req, res, next) => {", color: "#ffffff" },
+      { indent: 2, text: "if (!allowedRoles.includes(req.user.role)) {", color: "oklch(0.65 0.01 250)" },
+      { indent: 3, text: "return res.status(403).json({ message: 'Forbidden' });", color: "rgba(255,255,255,0.5)" },
+      { indent: 1, text: "};", color: "#ffffff" },
+    ],
+    caseStudy: {
+      architecture: "Modular Node.js/Express architecture with Service-Controller-Model pattern",
+      problem: "Need for real-time race condition handling in slot bookings and strict role separation for security",
+      solution: "Atomic MongoDB updates via 'findOneAndUpdate' to prevent overbooking and JWT-based middleware for RBAC",
+      metrics: [
+        { label: "Roles",     value: "Student/Prof", icon: "shield" },
+        { label: "Validation", value: "Zod Schema",  icon: "check-circle" },
+        { label: "Database",  value: "Mongoose",     icon: "database" },
+        { label: "Security",  value: "JWT/Cookies",  icon: "lock" },
+        { label: "Logs",         value: "Winston",   icon: "eye" },
+        { label: "Test Suite",   value: "Jest",      icon: "test-tube" },
+        { label: "Runtime",      value: "Docker",    icon: "package" },
+        { label: "CI Flow",      value: "GH Actions",icon: "git-branch" },
       ],
     },
   },
@@ -228,15 +284,29 @@ const accentColors: Record<string, { border: string; glow: string; tag: string; 
     tagText:  "#6ee7b7",
     orb:      "rgba(110,231,183,0.05)",
   },
+  blue: {
+    border:   "rgba(59,130,246,0.2)",
+    glow:     "rgba(59,130,246,0.12)",
+    tag:      "rgba(59,130,246,0.08)",
+    tagText:  "#3b82f6",
+    orb:      "rgba(59,130,246,0.05)",
+  },
 }
 
 // ─── Metric Icon ───────────────────────────────────────────────────────────────
 function MetricIcon({ icon }: { icon: string }) {
   const cls = "w-3.5 h-3.5"
-  if (icon === "zap")     return <Zap    className={cls} />
-  if (icon === "shield")  return <Shield className={cls} />
-  if (icon === "cpu")     return <Cpu    className={cls} />
-  if (icon === "layers")  return <Layers className={cls} />
+  if (icon === "zap")          return <Zap          className={cls} />
+  if (icon === "shield")       return <Shield       className={cls} />
+  if (icon === "cpu")          return <Cpu          className={cls} />
+  if (icon === "layers")       return <Layers       className={cls} />
+  if (icon === "check-circle") return <CheckCircle  className={cls} />
+  if (icon === "database")     return <Database     className={cls} />
+  if (icon === "lock")         return <Lock         className={cls} />
+  if (icon === "eye")          return <Eye          className={cls} />
+  if (icon === "test-tube")    return <TestTube     className={cls} />
+  if (icon === "package")      return <Package      className={cls} />
+  if (icon === "git-branch")   return <GitBranch    className={cls} />
   return null
 }
 
@@ -391,6 +461,7 @@ function PortalModal({
   return (
     <motion.div
       className="fixed inset-0 z-[99990] overflow-y-auto"
+      data-lenis-prevent="true"
       initial={{ clipPath: `circle(0px at ${originPct.x} ${originPct.y})` }}
       animate={{ clipPath: `circle(200% at ${originPct.x} ${originPct.y})` }}
       exit={{ clipPath: `circle(0px at ${originPct.x} ${originPct.y})` }}

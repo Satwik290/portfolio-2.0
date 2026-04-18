@@ -105,43 +105,60 @@ export function Contact() {
   const [hasError, setHasError] = useState(false)
 
   const [formData, setFormData] = useState({ name: "", email: "", message: "" })
+  const [serverFailed, setServerFailed] = useState(false)
 
-  useEffect(() => {
-    if (isSubmitting) {
-      const interval = setInterval(() => {
-        setLoadingFrame((prev) => {
-          if (prev >= loadingFrames.length - 1) {
-            clearInterval(interval)
-            setIsSubmitting(false)
-            setSubmitted(true)
-            return prev
-          }
-          return prev + 1
-        })
-      }, 400)
-      return () => clearInterval(interval)
-    }
-  }, [isSubmitting])
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!formData.name || !formData.email || !formData.message) {
       setHasError(true)
       setTimeout(() => setHasError(false), 600)
       return
     }
+    
     setLoadingFrame(0)
     setIsSubmitting(true)
+    setServerFailed(false)
+
+    // Run the faux-terminal progress animation
+    const interval = setInterval(() => {
+      setLoadingFrame((prev) => Math.min(prev + 1, loadingFrames.length - 2)) // Cap at 75% until done
+    }, 400)
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+
+      clearInterval(interval)
+
+      if (!res.ok) throw new Error('API request failed')
+
+      // Show final frame ("Transmitted.")
+      setLoadingFrame(loadingFrames.length - 1)
+      
+      setTimeout(() => {
+        setIsSubmitting(false)
+        setSubmitted(true)
+      }, 600)
+
+    } catch (err) {
+      clearInterval(interval)
+      setIsSubmitting(false)
+      setServerFailed(true)
+    }
   }
 
   const resetForm = () => {
     setSubmitted(false)
+    setServerFailed(false)
     setFormData({ name: "", email: "", message: "" })
   }
 
   const socials = [
     { icon: Github, href: "https://github.com/Satwik290", label: "GitHub", color: "#ffffff" },
-    { icon: Linkedin, href: "https://linkedin.com/in/satwik290", label: "LinkedIn", color: "#0077B5" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/satwik-mohanty-94b262252/", label: "LinkedIn", color: "#0077B5" },
     { icon: Twitter, href: "https://twitter.com", label: "Twitter", color: "#1DA1F2" },
     { icon: Mail, href: "mailto:mohanty.satwik290@gmail.com", label: "Email", color: "#00D9FF" },
   ]
@@ -278,6 +295,34 @@ export function Contact() {
                         style={{ color: "oklch(0.65 0.012 250)", fontFamily: "var(--font-space-grotesk)" }}
                       >
                         Send another message
+                      </button>
+                    </motion.div>
+                  ) : serverFailed ? (
+                    <motion.div
+                      key="error"
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
+                      className="flex flex-col items-center justify-center py-14 text-center"
+                    >
+                      <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full" style={{ background: "rgba(239, 68, 68, 0.1)", border: "1px solid rgba(239, 68, 68, 0.3)" }}>
+                        <span className="text-2xl" style={{ color: "#EF4444", fontFamily: "var(--font-jetbrains-mono)" }}>ERR</span>
+                      </div>
+                      <h3
+                        className="mb-3 text-xl font-bold"
+                        style={{ fontFamily: "var(--font-syne)", color: "#EF4444" }}
+                      >
+                        Transmission Failed
+                      </h3>
+                      <p className="mb-8 text-sm" style={{ color: "oklch(0.6 0.012 250)" }}>
+                        Connection to SMTP server failed. The signal was dropped.
+                      </p>
+                      <button
+                        onClick={() => setServerFailed(false)}
+                        className="text-sm underline-gradient"
+                        style={{ color: "oklch(0.65 0.012 250)", fontFamily: "var(--font-space-grotesk)" }}
+                      >
+                        Retry Transmission
                       </button>
                     </motion.div>
                   ) : isSubmitting ? (
