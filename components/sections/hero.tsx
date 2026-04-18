@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion"
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform, Variants } from "framer-motion"
 import { useEffect, useState, useRef, Suspense, useCallback } from "react"
 import { Github, Linkedin, Twitter, ArrowRight } from "lucide-react"
 import dynamic from "next/dynamic"
@@ -249,14 +249,14 @@ function MorphingText() {
   )
 }
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: {
     transition: { staggerChildren: 0.12, delayChildren: 0.2 },
   },
 }
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 32, filter: "blur(8px)" },
   visible: {
     opacity: 1,

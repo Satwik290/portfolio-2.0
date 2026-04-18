@@ -633,3 +633,87 @@
     -webkit-backdrop-filter: blur(8px);
   }
 }
+
+/* =========================================
+   LIVE PULSE DOT
+   ========================================= */
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 0 currentColor;
+  animation: pulse-live 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes pulse-live {
+  0%   { transform: scale(0.92); box-shadow: 0 0 0 0 rgba(0, 242, 255, 0.75); }
+  70%  { transform: scale(1);    box-shadow: 0 0 0 9px rgba(0, 242, 255, 0); }
+  100% { transform: scale(0.92); box-shadow: 0 0 0 0 rgba(0, 242, 255, 0); }
+}
+
+/* =========================================
+   SPOTLIGHT SHADER (GPU-Accelerated)
+   The flashlight effect reveals the
+   "bones of the system" beneath the card.
+   ========================================= */
+.spotlight-card {
+  --spot-x: -200px;
+  --spot-y: -200px;
+  --spot-accent: #00D9FF;
+  position: relative;
+}
+
+/* Hidden layer revealed by the mask */
+.spotlight-reveal-layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  will-change: mask-image, opacity;
+  /* GPU-accelerated compositing */
+  transform: translate3d(0, 0, 0);
+  transition: opacity 0.2s ease;
+
+  /* Blueprint grid pattern */
+  background-image:
+    linear-gradient(rgba(0, 217, 255, 0.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 217, 255, 0.10) 1px, transparent 1px),
+    linear-gradient(rgba(0, 217, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 217, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px, 40px 40px, 8px 8px, 8px 8px;
+
+  /* CRT scanline overlay */
+  -webkit-mask-image: radial-gradient(circle 90px at var(--spot-x) var(--spot-y), black 30%, rgba(0,0,0,0.6) 70%, transparent 100%);
+  mask-image: radial-gradient(circle 90px at var(--spot-x) var(--spot-y), black 30%, rgba(0,0,0,0.6) 70%, transparent 100%);
+}
+
+/* Scanline texture within the spotlight */
+.spotlight-reveal-layer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0, 0, 0, 0.15) 3px,
+    rgba(0, 0, 0, 0.15) 4px
+  );
+  mix-blend-mode: multiply;
+}
+
+/* Activate the layer on card hover */
+.spotlight-card:hover .spotlight-reveal-layer {
+  opacity: 1;
+}
+
+/* =========================================
+   PORTAL MODAL TRANSITION
+   ========================================= */
+/* Ensure portal covers page noise/vignette layers */
+[style*="clip-path"] {
+  isolation: isolate;
+}
+
